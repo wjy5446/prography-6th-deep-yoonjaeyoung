@@ -16,7 +16,7 @@ python test.py --phase train
 ### test (calculate precision)
 
 - model 폴더에 pt 파일을 넣어주세요
-- pt 파일 link
+- pt 파일 link : https://drive.google.com/file/d/1PNzDeK7SiWprGOUufC39E4OVAuZfq_-P/view?usp=sharing
 
 ```
 python test.py --phase test --idx_load_param 2000
