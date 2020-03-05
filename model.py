@@ -52,7 +52,7 @@ class VGG16(nn.Module):
         )
 
         self.fc = nn.Sequential(
-            nn.Linear(512 * 7 * 7 + 64 * 112 * 112, 4096),
+            nn.Linear(512 + 64 * 14 * 14, 4096),
             nn.ReLU(inplace=True),
             nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
@@ -68,10 +68,9 @@ class VGG16(nn.Module):
         out3 = self.conv3(out2)
         out4 = self.conv4(out3)
         out5 = self.conv5(out4)
-        out5 = out5.view(-1, 512 * 7 * 7)
-        out1 = out1.view(-1, 64 * 112 * 112)
+        out5 = out5.view(-1, 512)
+        out1 = out1.view(-1, 64 * 14 * 14)
         out6 = torch.cat([out1, out5], -1)
-        print(out6.size())
         out = self.fc(out6)
         return out
 
@@ -87,6 +86,6 @@ class VGG16(nn.Module):
 if __name__ == '__main__':
     model = VGG16()
 
-    img = torch.zeros(2, 3, 224, 224)
+    img = torch.zeros(2, 3, 28, 28)
     out = model(img)
     print(out.size())
