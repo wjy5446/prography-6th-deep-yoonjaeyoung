@@ -5,7 +5,7 @@ MNIST TEST SET 이용시 0.92789
 
 ### ADT
 
-![](/Users/whale/Project/prography-6th-deep-yoonjaeyoung/model.png)
+![](./model.png)
 
 
 ### train
