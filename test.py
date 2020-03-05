@@ -53,7 +53,13 @@ class Model(object):
                 self.optim.step()
 
                 print('epoch %5d [%5d/%5d] loss(train): %.8f' % (epoch, idx, len(self.train_loader), loss))
-    
+   
+    def test(self):
+        self.model.eval()
+        for idx, (img, label) in enumerate(self.test_loader):
+            label_pre = self.model(img)
+                    
+
     def inference(self, path_img):
         img = Image.open(path_img)
         self.model.eval()
@@ -63,4 +69,5 @@ class Model(object):
 if __name__ == '__main__':
     m = Model()
     m.build_model()
-    m.train()
+    
+    #m.train()
