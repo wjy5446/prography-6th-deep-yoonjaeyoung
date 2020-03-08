@@ -108,11 +108,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     m = Model()
-<<<<<<< HEAD
-    m.build_model()
-    
-    #m.train()
-=======
     m.build_model()   
 
     mode = args.phase 
@@ -123,4 +118,3 @@ if __name__ == '__main__':
         m.test(args.idx_load_param)
     if mode == 'inference':
         m.inference(args.path_img, args.idx_load_param)
->>>>>>> f3f7e3e3a8925ad1dac37bd6a88529a9957e2a9d
